@@ -16,7 +16,6 @@ class User
         $this->conn = $database->getConnection();
     }
 
-    // ثبت نام کاربر جدید
     public function register($username, $password)
     {
         $query = "INSERT INTO " . $this->table_name . " (username, password) VALUES (:username, :password)";
@@ -33,7 +32,6 @@ class User
         return false;
     }
 
-    // ورود کاربر
     public function login($username, $password)
     {
         $query = "SELECT * FROM " . $this->table_name . " WHERE username = :username LIMIT 1";
@@ -51,3 +49,4 @@ class User
         return false;
     }
 }
+
