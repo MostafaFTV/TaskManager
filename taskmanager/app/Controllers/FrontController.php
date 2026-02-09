@@ -11,7 +11,6 @@ class FrontController
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
 
-        // اتصال به دیتابیس
         $database = new Database();
         $this->db = $database->getConnection();
     }
@@ -63,3 +62,4 @@ class FrontController
         }
     }
 }
+
