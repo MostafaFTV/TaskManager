@@ -18,7 +18,6 @@ class Task
         $this->conn = $database->getConnection();
     }
 
-    // دریافت همه تسک‌های کاربر
     public function getTasksByUser($user_id)
     {
         $query = "SELECT * FROM " . $this->table_name . " WHERE user_id = :user_id ORDER BY created_at DESC";
@@ -29,7 +28,6 @@ class Task
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // افزودن تسک جدید
     public function addTask($user_id, $title, $description)
     {
         $query = "INSERT INTO " . $this->table_name . " (user_id, title, description) VALUES (:user_id, :title, :description)";
@@ -41,7 +39,6 @@ class Task
         return $stmt->execute();
     }
 
-    // تغییر وضعیت تسک (مثلاً از pending به completed)
     public function updateStatus($task_id, $status)
     {
         $query = "UPDATE " . $this->table_name . " SET status = :status WHERE id = :task_id";
@@ -52,7 +49,6 @@ class Task
         return $stmt->execute();
     }
 
-    // حذف تسک
     public function deleteTask($task_id)
     {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = :task_id";
@@ -61,7 +57,6 @@ class Task
 
         return $stmt->execute();
     }
-    // ویرایش عنوان و توضیحات تسک
     public function updateTask($task_id, $title, $description)
     {
     $query = "UPDATE " . $this->table_name . " SET title = :title, description = :description WHERE id = :task_id";
@@ -97,3 +92,4 @@ class Task
 
 
 }
+
