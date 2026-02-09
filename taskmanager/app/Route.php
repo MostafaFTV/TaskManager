@@ -24,8 +24,8 @@ class Route
             }
         }
 
-        // صفحه 404
         http_response_code(404);
         echo "<h1>404 - صفحه مورد نظر پیدا نشد</h1>";
     }
 }
+
